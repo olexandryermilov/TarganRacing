@@ -110,6 +110,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BetCompany.h" />
+    <ClInclude Include="Cockroach.h" />
+    <ClInclude Include="Gambler.h" />
+    <ClInclude Include="Racing.h" />
+    <ClInclude Include="TimeTable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BetCompany.cpp" />
+    <ClCompile Include="Cockroach.cpp" />
+    <ClCompile Include="Gambler.cpp" />
+    <ClCompile Include="Racing.cpp" />
+    <ClCompile Include="TimeTable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
