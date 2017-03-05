@@ -4,8 +4,8 @@
 
 
 
-Cockroach::Cockroach(std::string nam, int id, std::string teamName, int amountOfLegs, int experience, int glory):
-	name(nam),id(id),teamName(teamName),amountOfLegs(amountOfLegs),experience(experience),glory(glory)
+Cockroach::Cockroach(std::string name, int id, std::string teamName, int amountOfLegs, int experience, int glory):
+	name(name),id(id),teamName(teamName),amountOfLegs(amountOfLegs),experience(experience),glory(glory)
 {
 }
 
