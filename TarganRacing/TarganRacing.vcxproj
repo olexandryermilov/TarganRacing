@@ -113,6 +113,7 @@
     <ClInclude Include="BetCompany.h" />
     <ClInclude Include="Cockroach.h" />
     <ClInclude Include="Gambler.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Racing.h" />
     <ClInclude Include="TimeTable.h" />
   </ItemGroup>
