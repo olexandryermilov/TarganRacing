@@ -6,7 +6,7 @@ Gambler::Gambler()
 
 Gambler::Gambler(const json& data)
 {
-	*this=fromJson(data);
+	fromJson(data);
 }
 
 Gambler::Gambler(std::string name, int id, int money, int regularIncome, double riskCoef):
@@ -20,15 +20,13 @@ Gambler::~Gambler()
 {
 }
 
-Gambler Gambler::fromJson(const json& data)
+void Gambler::fromJson(const json& data)
 {
-	Gambler g;
-	//g.name = data["name"]; //problem with assignment
-	g.id = data["id"];
-	g.money = data["money"];
-	g.regularIncome = data["regularIncome"];
-	g.riskCoef = data["riskCoef"];
-	return g;
+	//name = data["name"]; //problem with assignment
+	id = data["id"];
+	money = data["money"];
+	regularIncome = data["regularIncome"];
+	riskCoef = data["riskCoef"];
 }
 
 json Gambler::toJson()

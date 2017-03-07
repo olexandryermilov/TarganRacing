@@ -8,7 +8,7 @@ BetCompany::BetCompany()
 
 BetCompany::BetCompany(const json& data)
 {
-	*this = fromJson(data);
+	fromJson(data);
 }
 
 BetCompany::BetCompany(std::string name, int id, int greedyness, int money):
@@ -21,14 +21,12 @@ BetCompany::~BetCompany()
 {
 }
 
-BetCompany BetCompany::fromJson(const json& data)
+void BetCompany::fromJson(const json& data)
 {
-	BetCompany bc;
-	//bc.name = data["name"];
-	bc.id = data["id"];
-	bc.greedyness = data["greedyness"];
-	bc.money = data["money"];
-	return bc;
+	//name = data["name"];
+	id = data["id"];
+	greedyness = data["greedyness"];
+	money = data["money"];
 }
 
 json BetCompany::toJson()

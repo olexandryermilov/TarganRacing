@@ -11,7 +11,7 @@ Cockroach::Cockroach(std::string name, int id, std::string teamName, int amountO
 
 Cockroach::Cockroach(const json& data)
 {
-	*this=fromJson(data);
+	fromJson(data);
 }
 
 Cockroach::Cockroach()
@@ -43,14 +43,12 @@ int Cockroach::calculateSpeed()
 	return amountOfLegs*legsInfluence + experience*experienceInfluence;
 }
 
-Cockroach Cockroach::fromJson(const json& data)
+void Cockroach::fromJson(const json& data)
 {
-	Cockroach c = new Cockroach();
-	//c.name = data["name"];
-	c.id = data["id"];
-	//c.teamName = data["teamName"];
-	c.amountOfLegs = data["amountOfLegs"];
-	c.experience = data["experience"];
-	c.glory = data["glory"];
-	return c;
+	//name = data["name"];
+	id = data["id"];
+	//teamName = data["teamName"];
+	amountOfLegs = data["amountOfLegs"];
+	experience = data["experience"];
+	glory = data["glory"];
 }

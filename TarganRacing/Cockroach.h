@@ -26,7 +26,7 @@ private:
 	int amountOfLegs;//more legs - better speed
 	int experience;//more exp - better speed
 	int glory;//more glory - less coefs in betcompanys, more gamblers will put money on it
-	Cockroach fromJson(const json& data);
+	void fromJson(const json& data);
 	//smth about weather?
 };
 

@@ -22,6 +22,6 @@ private:
 	int id;
 	int greedyness;
 	int money;
-	BetCompany fromJson(const json& data);
+	void fromJson(const json& data);
 };
 

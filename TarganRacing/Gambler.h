@@ -26,6 +26,6 @@ private:
 	int money;
 	int regularIncome;
 	double riskCoef;
-	Gambler fromJson(const json& data);
+	void fromJson(const json& data);
 };
 
