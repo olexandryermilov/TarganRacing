@@ -19,8 +19,8 @@ public:
 private:
 	std::string name;
 	int id;
-	int qualityCoef;
-	int length;
+	int qualityCoef;//between 0 and 100
+	int length;//possible values: 100,200,500,1000,2000,5000
 	//std::string weatherType;
 	void fromJson(const json& data);
 };

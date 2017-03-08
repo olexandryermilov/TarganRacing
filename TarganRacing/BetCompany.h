@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "Cockroach.h"
 #include "json.hpp"
 
 using json = nlohmann::json;
@@ -12,6 +14,7 @@ public:
 	BetCompany(std::string name, int id, int greedyness, int money);
 	json toJson();
 	~BetCompany();
+	std::vector<double> assignCoefs(std::vector<Cockroach> &allCockroaches);
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }
@@ -20,7 +23,7 @@ public:
 private:
 	std::string name;
 	int id;
-	int greedyness;
+	int greedyness;//between 0 and 100, generated randomly
 	int money;
 	void fromJson(const json& data);
 };

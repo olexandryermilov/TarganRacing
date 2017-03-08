@@ -25,8 +25,8 @@ private:
 	std::string name;//shows cockroach name
 	int id;
 	std::string teamName;
-	int amountOfLegs;//more legs - better speed
-	int experience;//more exp - better speed
+	int amountOfLegs;//more legs - better speed, between 0 and 10
+	int experience;//more exp - better speed, 
 	int glory;//more glory - less coefs in betcompanys, more gamblers will put money on it
 	void fromJson(const json& data);
 	//smth about weather?

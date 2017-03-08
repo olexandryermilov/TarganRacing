@@ -35,8 +35,9 @@ json Cockroach::toJson()
 	return r;
 }
 
-int Cockroach::calculateSpeed()
+int Cockroach::calculateSpeed()//returns value between 0 and 200
 {
+	
 	const int legsInfluence = 65;
 	const int experienceInfluence=35;
 
