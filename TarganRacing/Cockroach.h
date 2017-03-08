@@ -12,6 +12,8 @@ public:
 	~Cockroach();
 	json toJson();
 	int calculateSpeed(/*smth about weather, length of stadium,quality of stadium and other parameters that will influence speed*/);
+	void updateExperience(const int place, const int length, const int quality);
+	void updateLegs(const int quality, const int length);
 	//getters start here
 	std::string getName() const { return name; }
 	int getId()const { return id; }
