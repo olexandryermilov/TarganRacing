@@ -43,6 +43,7 @@ json BetCompany::toJson()
 std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroaches)
 {
 	const double beginningCoef = 1.25;
+	const int maxGlory = 175;
 	int amountOfCockroaches = allCockroaches.size();
 	std::vector< std::pair<int,int>  >speeds(amountOfCockroaches);
 	for (int i = 0; i < amountOfCockroaches; ++i)
@@ -60,6 +61,63 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 	for (int i = 0; i < amountOfCockroaches; ++i)
 	{
 		coefs[speeds[i].second] = tempCoef;
+		const int glory = allCockroaches[speeds[i].second].getGlory();
+		const double greedyInfluence = greedyness / 200;
+		if (coefs[speeds[i].second] > 5.0)
+		{
+			if (glory > 100)
+			{
+				coefs[speeds[i].second] -= 2.0-greedyInfluence;
+			}
+			if (glory > 50)
+			{
+				coefs[speeds[i].second] -= 1.0 - greedyInfluence;
+			}
+			if (glory < 25)
+			{
+				coefs[speeds[i].second] += 0.5 - greedyInfluence;
+			}
+		}
+		else
+		{
+			if (coefs[speeds[i].second] > 3.0)
+			{
+				if (glory > 100)
+				{
+					coefs[speeds[i].second] -= 1.5 - greedyInfluence;
+				}
+				if (glory > 50)
+				{
+					coefs[speeds[i].second] -= 0.6 - greedyInfluence;
+				}
+				if (glory < 25)
+				{
+					coefs[speeds[i].second] += 0.3 - greedyInfluence;
+				}
+			}
+			else
+			{
+				if (coefs[speeds[i].second] > 2.0)
+				{
+					if (glory > 100)
+					{
+						coefs[speeds[i].second] -= 0.5 - greedyInfluence;
+					}
+					if (glory > 50)
+					{
+						coefs[speeds[i].second] -= 0.25 - greedyInfluence;
+					}
+					if (glory < 25)
+					{
+						coefs[speeds[i].second] += 0.25 - greedyInfluence;
+					}
+				}
+				else
+				{
+					//do smth?
+				}
+			}
+		}
 		if (i < amountOfCockroaches - 1)tempCoef += 4 * (speeds[i + 1].first - speeds[i].first);
 	}
 	return coefs;

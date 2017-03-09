@@ -69,7 +69,14 @@ void Cockroach::updateExperience(const int place, const int length, const int qu
 
 void Cockroach::updateLegs(const int quality, const int length)
 {
-	int influenceCoef = (105 - quality) * length;
+	const int influenceCoef = (105 - quality) * length;//value between 5*100==500 and 105*5000==525000
+	if (influenceCoef >= 100000)
+	{
+		if (amountOfLegs > 6)
+		{
+			amountOfLegs -= 3;
+		}
+	}
 	if (influenceCoef >= 10000)
 	{
 		if (amountOfLegs > 4)
@@ -94,7 +101,7 @@ void Cockroach::updateLegs(const int quality, const int length)
 		{
 			if (amountOfLegs > 4)
 			{
-				amountOfLegs--
+				amountOfLegs--;
 			}
 			else
 			{

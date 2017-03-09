@@ -27,7 +27,8 @@ private:
 	std::string teamName;
 	int amountOfLegs;//more legs - better speed, between 0 and 10
 	int experience;//more exp - better speed, 
-	int glory;//more glory - less coefs in betcompanys, more gamblers will put money on it
+	int glory;//more glory - less coefs in betcompanys, more gamblers will put money on it,
+			  //between 0 and 175, includes 3 last racings, 100+50+25 
 	void fromJson(const json& data);
 	//smth about weather?
 };
