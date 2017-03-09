@@ -118,7 +118,7 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 				}
 			}
 		}
-		if (i < amountOfCockroaches - 1)tempCoef += 4 * (speeds[i + 1].first - speeds[i].first);
+		if (i < amountOfCockroaches - 1)tempCoef += 4 * (speeds[i + 1].first - speeds[i].first)/100;
 	}
 	return coefs;
 	
