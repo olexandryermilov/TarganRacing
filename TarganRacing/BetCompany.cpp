@@ -56,13 +56,13 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 		return l.first > r.first;
 	}
 	);
-	double tempCoef = beginningCoef - greedyness/400;//between 1.0 and 1.25
+	double tempCoef = beginningCoef - greedyness/400.0;//between 1.0 and 1.25
 	std::vector<double>coefs(amountOfCockroaches);
 	for (int i = 0; i < amountOfCockroaches; ++i)
 	{
 		coefs[speeds[i].second] = tempCoef;
 		const int glory = allCockroaches[speeds[i].second].getGlory();
-		const double greedyInfluence = greedyness / 200;
+		const double greedyInfluence = greedyness / 200.0;// value between 0.0 and 0.5
 		if (coefs[speeds[i].second] > 5.0)
 		{
 			if (glory > 100)
@@ -84,15 +84,15 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 			{
 				if (glory > 100)
 				{
-					coefs[speeds[i].second] -= 1.5 - greedyInfluence;
+					coefs[speeds[i].second] -= 1.5 - 0.5*greedyInfluence;
 				}
 				if (glory > 50)
 				{
-					coefs[speeds[i].second] -= 0.6 - greedyInfluence;
+					coefs[speeds[i].second] -= 0.6 - 0.5*greedyInfluence;
 				}
 				if (glory < 25)
 				{
-					coefs[speeds[i].second] += 0.3 - greedyInfluence;
+					coefs[speeds[i].second] += 0.3 - 0.5*greedyInfluence;
 				}
 			}
 			else
@@ -101,15 +101,15 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 				{
 					if (glory > 100)
 					{
-						coefs[speeds[i].second] -= 0.5 - greedyInfluence;
+						coefs[speeds[i].second] -= 0.5 - 0.25*greedyInfluence;
 					}
 					if (glory > 50)
 					{
-						coefs[speeds[i].second] -= 0.25 - greedyInfluence;
+						coefs[speeds[i].second] -= 0.25 - 0.25*greedyInfluence;
 					}
 					if (glory < 25)
 					{
-						coefs[speeds[i].second] += 0.25 - greedyInfluence;
+						coefs[speeds[i].second] += 0.25 - 0.25*greedyInfluence;
 					}
 				}
 				else
@@ -118,7 +118,7 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 				}
 			}
 		}
-		if (i < amountOfCockroaches - 1)tempCoef += 4 * (speeds[i + 1].first - speeds[i].first)/100;
+		if (i < amountOfCockroaches - 1)tempCoef += 4.0 * (speeds[i + 1].first - speeds[i].first)/100-0.3*greedyInfluence;
 	}
 	return coefs;
 	
