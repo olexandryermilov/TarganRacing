@@ -29,7 +29,7 @@ json Cockroach::toJson()
 	r["name"] = name;
 	r["id"] = id;
 	r["teamName"] = teamName;
-	r["amontOfLegs"] = amountOfLegs;
+	r["amountOfLegs"] = amountOfLegs;
 	r["experience"] = experience;
 	r["glory"] = glory;
 	return r;
