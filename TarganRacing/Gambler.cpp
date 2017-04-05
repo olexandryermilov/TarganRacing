@@ -1,15 +1,22 @@
 #include "Gambler.h"
+#include "Random.h"
 
-
-Gambler::Gambler()
-{}
+Gambler::Gambler(std::string name, int id)
+{
+	Random random;
+	(*this).name = name;
+	(*this).id = id;
+	money = random.getRandomInteger(1000);
+	regularIncome = random.getRandomInteger(100);
+	riskCoef = random.getRandomInteger(100);
+}
 
 Gambler::Gambler(const json& data)
 {
 	fromJson(data);
 }
 
-Gambler::Gambler(std::string name, int id, int money, int regularIncome, double riskCoef):
+Gambler::Gambler(std::string name, int id, int money, int regularIncome, int riskCoef):
 	name(name),id(id),money(money),regularIncome(regularIncome),riskCoef(riskCoef)
 {
 

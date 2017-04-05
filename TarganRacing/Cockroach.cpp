@@ -2,7 +2,15 @@
 #include "json.hpp"
 
 
-
+Cockroach::Cockroach(std::string name, int id, std::string teamName)
+{
+	(*this).name = name;
+	(*this).id = id;
+	(*this).teamName = teamName;
+	amountOfLegs = 10;
+	experience = 0;
+	glory = 0;
+}
 
 Cockroach::Cockroach(std::string name, int id, std::string teamName, int amountOfLegs, int experience, int glory):
 	name(name),id(id),teamName(teamName),amountOfLegs(amountOfLegs),experience(experience),glory(glory)
@@ -12,11 +20,6 @@ Cockroach::Cockroach(std::string name, int id, std::string teamName, int amountO
 Cockroach::Cockroach(const json& data)
 {
 	fromJson(data);
-}
-
-Cockroach::Cockroach()
-{
-
 }
 
 Cockroach::~Cockroach()

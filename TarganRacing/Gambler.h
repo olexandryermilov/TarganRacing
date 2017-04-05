@@ -7,8 +7,8 @@ using json = nlohmann::json;
 class Gambler
 {
 public:
-	Gambler();
-	Gambler(std::string name, int id, int money, int regularIncome, double riskCoef);
+	Gambler(std::string name, int id);
+	Gambler(std::string name, int id, int money, int regularIncome, int riskCoef);
 	Gambler(const json& data);
 	~Gambler();
 	json toJson();
@@ -17,15 +17,15 @@ public:
 	int getId() const { return id; }
 	int getMoney() const { return money; }
 	int getRegularIncome() const { return regularIncome; }
-	double getRiskCoef() const { return riskCoef; }
+	int getRiskCoef() const { return riskCoef; }
 	//int chooseCockroach();
 	//favorite betcompany?
 private:
 	std::string name;
 	int id;
 	int money;
-	int regularIncome;
-	double riskCoef;
+	int regularIncome;//between 0 and 100
+	int riskCoef;//between 0 and 100
 	void fromJson(const json& data);
 };
 

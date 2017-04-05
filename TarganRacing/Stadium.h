@@ -6,7 +6,7 @@ using json = nlohmann::json;
 class Stadium
 {
 public:
-	Stadium();
+	Stadium(std::string name, int id);
 	Stadium(const json& data);
 	Stadium(std::string name, int id, int qualityCoef, int length/*,std::string weatherType*/);
 	~Stadium();

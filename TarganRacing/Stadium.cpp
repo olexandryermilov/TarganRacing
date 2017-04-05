@@ -1,10 +1,17 @@
 #include "Stadium.h"
 #include "json.hpp"
+#include "Random.h"
 
 using json = nlohmann::json;
 
-Stadium::Stadium()
+Stadium::Stadium(std::string name, int id)
 {
+	Random random;
+	(*this).name = name;
+	(*this).id = id;
+	qualityCoef = random.getRandomInteger(100);
+	int lengthValues[6] = { 100,200,500,1000,2000,5000 };
+	length = lengthValues[random.getRandomInteger(5)];
 }
 
 Stadium::Stadium(std::string name, int id, int qualityCoef, int length/*,std::string weatherType*/) :

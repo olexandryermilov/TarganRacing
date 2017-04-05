@@ -2,13 +2,13 @@
 #include <algorithm>
 #include "Random.h"
 
-BetCompany::BetCompany(int newId, std::string newName)
+BetCompany::BetCompany(int id, std::string name)
 {
-	/*Random random;
-	id = newId;
-	name = newName;
+	Random random;
+	(*this).id = id;
+	(*this).name = name;
 	greedyness = random.getRandomInteger(100);
-	money = random.getRandomInteger(1000);*/
+	money = random.getRandomInteger(1000);
 }
 
 BetCompany::BetCompany(const json& data)
