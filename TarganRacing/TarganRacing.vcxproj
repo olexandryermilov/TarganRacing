@@ -115,6 +115,7 @@
     <ClInclude Include="Gambler.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Racing.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Stadium.h" />
     <ClInclude Include="TimeTable.h" />
   </ItemGroup>
@@ -123,6 +124,7 @@
     <ClCompile Include="Cockroach.cpp" />
     <ClCompile Include="Gambler.cpp" />
     <ClCompile Include="Racing.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="Stadium.cpp" />
     <ClCompile Include="TimeTable.cpp" />
   </ItemGroup>

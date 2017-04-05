@@ -9,7 +9,7 @@ using json = nlohmann::json;
 class BetCompany
 {
 public:
-	BetCompany();
+	BetCompany(int newId, std::string newName);
 	BetCompany(const json& data);
 	BetCompany(std::string name, int id, int greedyness, int money);
 	json toJson();

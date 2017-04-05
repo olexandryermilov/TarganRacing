@@ -1,10 +1,14 @@
 #include "BetCompany.h"
 #include <algorithm>
+#include "Random.h"
 
-
-
-BetCompany::BetCompany()
+BetCompany::BetCompany(int newId, std::string newName)
 {
+	/*Random random;
+	id = newId;
+	name = newName;
+	greedyness = random.getRandomInteger(100);
+	money = random.getRandomInteger(1000);*/
 }
 
 BetCompany::BetCompany(const json& data)
