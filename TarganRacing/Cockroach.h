@@ -1,5 +1,6 @@
 #pragma once
 #include "json.hpp"
+#include "Stadium.h"
 
 using json = nlohmann::json;
 
@@ -11,7 +12,7 @@ public:
 	Cockroach(std::string name, int id, std::string teamName, int amountOfLegs, int experience, int glory);
 	~Cockroach();
 	json toJson();
-	int calculateSpeed(/*smth about weather, length of stadium,quality of stadium and other parameters that will influence speed*/);
+	int calculateSpeed(Stadium stadium);
 	void updateExperience(const int place, const int length, const int quality);
 	void updateLegs(const int quality, const int length);
 	//getters start here

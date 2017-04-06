@@ -1,5 +1,6 @@
 #include "Cockroach.h"
 #include "json.hpp"
+#include "Random.h"
 
 
 Cockroach::Cockroach(std::string name, int id, std::string teamName)
@@ -38,12 +39,14 @@ json Cockroach::toJson()
 	return r;
 }
 
-int Cockroach::calculateSpeed()//returns value between 0 and 200
+int Cockroach::calculateSpeed(Stadium stadium)//returns value between 0 and 200
 {
-	
+	Random random;
 	const int legsInfluence = 65;
 	const int experienceInfluence=35;
-
+	const int luckCoef =random.getRandomInteger(7);
+	const int qualityInfluence = 15;
+	const int lengthInfluence =10 ;
 	return amountOfLegs*legsInfluence + experience*experienceInfluence;
 }
 
@@ -114,3 +117,5 @@ void Cockroach::updateLegs(const int quality, const int length)
 	}
 	return;
 }
+
+
