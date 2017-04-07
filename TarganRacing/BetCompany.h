@@ -14,7 +14,7 @@ public:
 	BetCompany(std::string name, int id, int greedyness, int money);
 	json toJson();
 	~BetCompany();
-	std::vector<double> assignCoefs(std::vector<Cockroach> &allCockroaches);
+	std::vector<double> assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium);
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }

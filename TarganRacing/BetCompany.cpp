@@ -44,7 +44,7 @@ json BetCompany::toJson()
 	return r;
 }
 
-std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroaches)
+std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium)
 {
 	const double beginningCoef = 1.25;
 	const int maxGlory = 175;
@@ -52,7 +52,7 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 	std::vector< std::pair<int,int>  >speeds(amountOfCockroaches);
 	for (int i = 0; i < amountOfCockroaches; ++i)
 	{
-		speeds[i].first = allCockroaches[i].calculateSpeed();
+		speeds[i].first = allCockroaches[i].calculateSpeed(stadium);
 		speeds[i].second = i;
 	}
 	sort(speeds.begin(), speeds.end(), [](std::pair<int, int >l, std::pair<int,int>r)
