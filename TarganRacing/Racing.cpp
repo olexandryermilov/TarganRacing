@@ -1,6 +1,5 @@
 #include "Racing.h"
-
-
+#include <algorithm>
 
 Racing::Racing()
 {
@@ -25,6 +24,17 @@ std::vector<int> Racing::Race(std::vector<Cockroach>&cockroaches, Stadium stadiu
 {
 	int size = cockroaches.size();
 	std::vector<int>result(size,-1);
+	std::vector<std::pair<int,int> >speeds(size);
+	for (int i = 0; i < size; i++)
+	{
+		speeds[i].first = cockroaches[i].calculateSpeed(stadium);
+		speeds[i].second = i;
+	}
+	sort(speeds.begin(), speeds.end());
+	for (int i = 0; i < size; i++)
+	{
+		result[i] = speeds[i].second;
+	}
 	return result;
 }
 
