@@ -7,14 +7,10 @@ Random::Random()
 {
 }
 
-double Random::getRandomDouble()
-{
-	srand((int)clock());
-	return ;
-}
 
 int Random::getRandomInteger(int bound)
 {
+	srand((int)clock());
 	int result = rand()*rand();
 	return result%(bound+1);
 }
