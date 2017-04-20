@@ -23,6 +23,11 @@ Cockroach::Cockroach(const json& data)
 	fromJson(data);
 }
 
+Cockroach::Cockroach()
+{
+
+}
+
 Cockroach::~Cockroach()
 {
 }

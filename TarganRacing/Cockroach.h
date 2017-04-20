@@ -10,6 +10,7 @@ public:
 	Cockroach(std::string name, int id, std::string teamName);
 	Cockroach(const json& data);
 	Cockroach(std::string name, int id, std::string teamName, int amountOfLegs, int experience, int glory);
+	Cockroach();
 	~Cockroach();
 	json toJson();
 	int calculateSpeed(Stadium stadium);
