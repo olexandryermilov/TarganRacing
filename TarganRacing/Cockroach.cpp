@@ -123,4 +123,3 @@ void Cockroach::updateLegs(const int quality, const int length)
 	return;
 }
 
-

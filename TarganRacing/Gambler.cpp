@@ -22,6 +22,10 @@ Gambler::Gambler(std::string name, int id, int money, int regularIncome, int ris
 
 }
 
+Gambler::Gambler()
+{
+
+}
 
 Gambler::~Gambler()
 {

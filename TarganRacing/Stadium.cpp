@@ -4,6 +4,11 @@
 
 using json = nlohmann::json;
 
+Stadium::Stadium()
+{
+
+}
+
 Stadium::Stadium(std::string name, int id)
 {
 	Random random;

@@ -12,6 +12,7 @@ public:
 	BetCompany(int newId, std::string newName);
 	BetCompany(const json& data);
 	BetCompany(std::string name, int id, int greedyness, int money);
+	BetCompany();
 	json toJson();
 	~BetCompany();
 	std::vector<double> assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium);

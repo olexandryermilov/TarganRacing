@@ -11,6 +11,10 @@ BetCompany::BetCompany(int id, std::string name)
 	money = random.getRandomInteger(1000);
 }
 
+BetCompany::BetCompany()
+{
+
+}
 BetCompany::BetCompany(const json& data)
 {
 	fromJson(data);

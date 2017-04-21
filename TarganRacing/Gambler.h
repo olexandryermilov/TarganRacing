@@ -10,6 +10,7 @@ public:
 	Gambler(std::string name, int id);
 	Gambler(std::string name, int id, int money, int regularIncome, int riskCoef);
 	Gambler(const json& data);
+	Gambler();
 	~Gambler();
 	json toJson();
 	//getters start here
