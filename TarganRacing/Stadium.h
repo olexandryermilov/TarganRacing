@@ -11,6 +11,8 @@ public:
 	Stadium(const json& data);
 	Stadium(std::string name, int id, int qualityCoef, int length/*,std::string weatherType*/);
 	~Stadium();
+	void updateQuality();
+	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }
 	int getQuality() const { return qualityCoef; }

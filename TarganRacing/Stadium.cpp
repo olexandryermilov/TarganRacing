@@ -49,3 +49,8 @@ void Stadium::fromJson(const json& data)
 	length = data["length"];
 	return;
 }
+
+void updateQuality()
+{
+	//todo:: reduce quality 
+}

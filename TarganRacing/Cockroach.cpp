@@ -65,21 +65,25 @@ void Cockroach::fromJson(const json& data)
 	glory = data["glory"];
 }
 
-void Cockroach::updateExperience(const int place, const int length, const int quality)
+void Cockroach::updateExperience(const int place, Stadium stadium)
 {
 	const int maximumPlace = 15;
 	const int maxQuality = 100;
 	const int maxLength = 5000;
 	const int minimumDelta = 5;
 	const int firstPlacePrize = 10;
+	int length = stadium.getLength();
+	int quality = stadium.getQuality();
 	int delta = (int)((maximumPlace - place)*(length/maxLength)*(maxQuality - quality))
 		              +minimumDelta+firstPlacePrize*(place==1);
 	experience += delta;
 	return;
 }
 
-void Cockroach::updateLegs(const int quality, const int length)
+void Cockroach::updateLegs(Stadium stadium)
 {
+	int length = stadium.getLength();
+	int quality = stadium.getQuality();
 	const int influenceCoef = (105 - quality) * length;//value between 5*100==500 and 105*5000==525000
 	if (influenceCoef >= 100000)
 	{
@@ -123,3 +127,8 @@ void Cockroach::updateLegs(const int quality, const int length)
 	return;
 }
 
+void Cockroach::update(const int place, Stadium stadium)
+{
+	updateExperience(place, stadium);
+	updateLegs(stadium);
+}

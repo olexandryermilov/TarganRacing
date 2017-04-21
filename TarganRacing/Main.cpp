@@ -67,9 +67,16 @@ int main()
 			{
 				betCompanies[i].assignCoefs(cockroaches, stadiums[p]);
 			}
+			//race
+			//take money
+			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
+			{
+				cockroaches[i].update(i, stadiums[p]);
+			}
+			for (int i = 0; i < stadiumsAmount; i++)//update stadiums
+			{
+				stadiums[i].updateQuality();
+			}
 		}
-		//race
-		//take money
-		//update cockroaches
 	}
 }
