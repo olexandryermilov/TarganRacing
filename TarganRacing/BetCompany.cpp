@@ -48,6 +48,12 @@ json BetCompany::toJson()
 	return r;
 }
 
+void BetCompany::printInfo()
+{
+	printf("BetCompany "); std::cout << name;
+	printf(" has %d money\n", money);
+}
+
 std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium)
 {
 	const double beginningCoef = 1.25;

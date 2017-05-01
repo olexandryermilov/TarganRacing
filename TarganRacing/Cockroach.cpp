@@ -76,6 +76,9 @@ void Cockroach::updateExperience(const int place, Stadium stadium)
 	int quality = stadium.getQuality();
 	int delta = (int)((maximumPlace - place)*(length/maxLength)*(maxQuality - quality))
 		              +minimumDelta+firstPlacePrize*(place==1);
+	printf("Cockroach ");
+	std::cout << name;
+	printf(": experience changed from %d to %d", experience, experience + delta);
 	experience += delta;
 	return;
 }
@@ -85,24 +88,25 @@ void Cockroach::updateLegs(Stadium stadium)
 	int length = stadium.getLength();
 	int quality = stadium.getQuality();
 	const int influenceCoef = (105 - quality) * length;//value between 5*100==500 and 105*5000==525000
+	int delta = 0;
 	if (influenceCoef >= 100000)
 	{
 		if (amountOfLegs > 6)
 		{
-			amountOfLegs -= 3;
+			delta= 3;
 		}
 	}
 	if (influenceCoef >= 10000)
 	{
 		if (amountOfLegs > 4)
 		{
-			amountOfLegs -= 2;
+			delta= 2;
 		}
 		else
 		{
 			if (amountOfLegs > 2)
 			{
-				amountOfLegs--;
+				delta = 1;
 			}
 			else
 			{
@@ -116,7 +120,7 @@ void Cockroach::updateLegs(Stadium stadium)
 		{
 			if (amountOfLegs > 4)
 			{
-				amountOfLegs--;
+				delta = 1;
 			}
 			else
 			{
@@ -124,6 +128,8 @@ void Cockroach::updateLegs(Stadium stadium)
 			}
 		}
 	}
+	printf(", lost %d leg(s)\n", delta);
+	amountOfLegs -= delta;
 	return;
 }
 
@@ -131,4 +137,11 @@ void Cockroach::update(const int place, Stadium stadium)
 {
 	updateExperience(place, stadium);
 	updateLegs(stadium);
+}
+
+void Cockroach::printInfo()
+{
+	printf("Cockroach ");
+	std::cout << name;
+	printf(" has %d legs, %d experience and %d glory\n", amountOfLegs, experience, glory);
 }

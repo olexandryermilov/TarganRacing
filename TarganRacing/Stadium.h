@@ -12,6 +12,7 @@ public:
 	Stadium(std::string name, int id, int qualityCoef, int length/*,std::string weatherType*/);
 	~Stadium();
 	void updateQuality();
+	void printInfo();
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }

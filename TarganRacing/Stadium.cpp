@@ -50,7 +50,16 @@ void Stadium::fromJson(const json& data)
 	return;
 }
 
-void updateQuality()
+void Stadium::updateQuality()
 {
-	//todo:: reduce quality 
+	//todo:: reduce quality
+	int delta = 0;
+	printf("Stadium %d: Quality changed from %d to %d\n", id, qualityCoef, qualityCoef - delta);
+}
+
+void Stadium::printInfo()
+{
+	printf("Stadium ");
+	std::cout << name;
+	printf(": quality is %d, length is %d\n", qualityCoef, length);
 }

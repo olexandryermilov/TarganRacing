@@ -50,6 +50,13 @@ json Gambler::toJson()
 	r["riskCoef"] = riskCoef;
 	return r;
 }
+
+void Gambler::printInfo()
+{
+	printf("Gambler ");
+	std::cout << name;
+	printf(" has %d money.\n");
+}
 /*int Gambler::chooseCockroach()
 {
 

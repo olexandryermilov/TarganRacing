@@ -13,6 +13,7 @@ public:
 	Gambler();
 	~Gambler();
 	json toJson();
+	void printInfo();
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }

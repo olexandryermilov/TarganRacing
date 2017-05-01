@@ -18,5 +18,6 @@ public:
 	int getTime();
 private:
 	int time;
+	void printLog(std::vector<Cockroach>&cockroaches, Stadium stadium, std::vector<int>&result);
 };
 

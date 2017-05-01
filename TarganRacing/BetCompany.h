@@ -16,6 +16,7 @@ public:
 	json toJson();
 	~BetCompany();
 	std::vector<double> assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium);
+	void printInfo();
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }

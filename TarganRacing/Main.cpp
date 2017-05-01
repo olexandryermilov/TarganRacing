@@ -59,6 +59,7 @@ int main()
 	std::vector<Gambler>gamblers = getGamblers(gamblersAmount);//generate gamblers
 	while (true)
 	{
+		//todo: add print
 		//generate timetables
 		//choose stadium
 		for (int p = 0; p < stadiumsAmount; p++)
@@ -68,7 +69,7 @@ int main()
 				betCompanies[i].assignCoefs(cockroaches, stadiums[p]);
 			}
 			//race
-			//take money
+			//updates, take money
 			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
 			{
 				cockroaches[i].update(i, stadiums[p]);

@@ -38,6 +38,21 @@ std::vector<int> Racing::Race(std::vector<Cockroach>&cockroaches, Stadium stadiu
 	return result;
 }
 
+void Racing::printLog(std::vector<Cockroach>&cockroaches, Stadium stadium, std::vector<int>&result)
+{
+	printf("Stadium "); std::cout << stadium.getName()<<std::endl;
+	for (int i = 0; i < result.size(); i++)
+	{
+		printf("%d-");
+		if (i%10 == 0)printf("st");
+		if (i%10 == 1)printf("nd");
+		if (i%10 == 2)printf("rd");
+		if (i % 10 > 2)printf("th");
+		printf(" place - Cockroach ");
+		std::cout << cockroaches[result[i]].getName()<<std::endl;
+	}
+}
+
 Racing::~Racing()
 {
 }
