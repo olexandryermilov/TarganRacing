@@ -13,5 +13,7 @@ public:
 	TimeTable();
 	~TimeTable();
 	static std::vector <Stadium> getTimeTable(std::vector<Stadium> &stadiums);
+private:
+	static void printInfo(std::vector<Stadium> &stadiums);
 };
 

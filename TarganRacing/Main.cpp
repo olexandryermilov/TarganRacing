@@ -81,8 +81,7 @@ int main()
 	while (true)
 	{
 		//todo: add print
-		TimeTable timeTable;
-		stadiums = timeTable.getTimeTable(stadiums);
+		stadiums = TimeTable::getTimeTable(stadiums);
 		for (int p = 0; p < stadiumsAmount; p++)
 		{
 			Racing::stadium = stadiums[p];
