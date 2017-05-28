@@ -10,6 +10,8 @@ std::vector<Cockroach> getCockroaches(int cockroachesAmount)
 {
 	std::vector<Cockroach>result(cockroachesAmount);
 	std::string name="A";
+	Cockroach::minExp = (int)1e9;
+	Cockroach::maxExp = 0;
 	for (int i = 0; i < cockroachesAmount; i++)
 	{
 		result[i] = Cockroach("Cockroach "+name,i+1,"TeamName"+name);
@@ -60,7 +62,6 @@ std::vector<Gambler> getGamblers(int gamblersAmount)
 	}
 	return result;
 }
-
 int main()
 {
 	srand((int)clock());
@@ -84,6 +85,7 @@ int main()
 		stadiums = timeTable.getTimeTable(stadiums);
 		for (int p = 0; p < stadiumsAmount; p++)
 		{
+			Racing::stadium = stadiums[p];
 			for (int i = 0; i < betCompaniesAmount; i++)//assign coefs
 			{
 				betCompanies[i].assignCoefs(cockroaches, stadiums[p]);
@@ -95,8 +97,8 @@ int main()
 			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
 			{
 				cockroaches[i].update(i, stadiums[p]);
-				Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
-				Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
+				//Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
+				//Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
 			}
 			for (int i = 0; i < stadiumsAmount; i++)//update stadiums
 			{

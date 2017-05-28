@@ -2,6 +2,8 @@
 #include "json.hpp"
 #include "Random.h"
 
+int Cockroach::maxExp;
+int Cockroach::minExp;
 
 Cockroach::Cockroach(std::string name, int id, std::string teamName)
 {
@@ -51,11 +53,11 @@ int Cockroach::calculateSpeed(Stadium stadium)//returns value between 0 and 200
 	const int luckCoef =Random::getRandomInteger(5);
 	const int qualityInfluence = 40;
 	const int lengthInfluence =30;
-	
-	int speedResult = (amountOfLegs*legsInfluence / maxLegs)
-						+((qualityInfluence*stadium.getQuality())/Stadium::maxQuality)
-						+(lengthInfluence*(6-stadium.lengthType)/6)
-						+(experience*experienceInfluence)/(maxExp-minExp);
+	int mxE = Cockroach::maxExp;
+	int mnE = Cockroach::minExp;
+
+	int speedResult = (amountOfLegs*legsInfluence / Cockroach::maxLegs)+ qualityInfluence*stadium.getQuality()/Stadium::maxQuality + lengthInfluence*(6-stadium.lengthType)/6+
+		(experience*experienceInfluence)/(std::abs(Cockroach::maxExp - Cockroach::minExp)+1);
 	return speedResult-speedResult*luckCoef/10;
 }
 

@@ -6,6 +6,7 @@ using json = nlohmann::json;
 
 class Cockroach
 {
+	
 public:
 	Cockroach(std::string name, int id, std::string teamName);
 	Cockroach(const json& data);
@@ -38,5 +39,6 @@ private:
 	int glory;//more glory - less coefs in betcompany, more gamblers will put money on it,
 			  //between 0 and 175, includes 3 last racings, 100+50+25 
 	void fromJson(const json& data);
+	
 };
 

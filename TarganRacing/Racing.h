@@ -16,8 +16,10 @@ public:
 	void Race(std::vector<Cockroach>&cockroaches, Stadium stadium);
 	void setTime(int time);
 	int getTime();
+	static Stadium stadium;
 private:
 	int time;
+	
 	void printLog(std::vector<Cockroach>&cockroaches, Stadium stadium);
 };
 

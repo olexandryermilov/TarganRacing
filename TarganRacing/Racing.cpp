@@ -1,6 +1,7 @@
 #include "Racing.h"
 #include <algorithm>
 
+Stadium Racing::stadium;
 Racing::Racing()
 {
 }
@@ -20,36 +21,29 @@ void Racing::setTime(int time)
 	(*this).time = time;
 }
 
-bool speedComp(std::pair<Cockroach, Stadium>  l, std::pair<Cockroach, Stadium> r)
+bool speedComp(Cockroach &l, Cockroach &r)
 {
-	Stadium st = l.second;
-	return l.first.calculateSpeed(st) > r.first.calculateSpeed(st);
+	Stadium st = Racing::stadium;
+	std::cout << l.getId() << ' ' << r.getId() << std::endl;
+	return l.calculateSpeed(st) >= r.calculateSpeed(st);
 }
 
 void Racing::Race(std::vector<Cockroach>&cockroaches, Stadium stadium)
 {
 	int size = cockroaches.size();
-	std::vector<std::pair<Cockroach, Stadium> >resultOfRace(size);
 	for (int i = 0; i < size; i++)
 	{
-		resultOfRace[i].first = cockroaches[i];
-		resultOfRace[i].second = stadium;
+		for (int j = 1; j < size; j++)
+		{
+			if (cockroaches[j].calculateSpeed(Racing::stadium) > cockroaches[j - 1].calculateSpeed(Racing::stadium))
+			{
+				Cockroach t = cockroaches[j];
+				cockroaches[j] = cockroaches[j - 1];
+				cockroaches[j - 1] = t;
+			}
+		}
 	}
-	sort(resultOfRace.begin(),resultOfRace.end(), speedComp);
 	printLog(cockroaches,stadium);
-	/*std::vector<int>result(size,-1);
-	std::vector<std::pair<int,int> >speeds(size);
-	for (int i = 0; i < size; i++)
-	{
-	speeds[i].first = cockroaches[i].calculateSpeed(stadium);
-	speeds[i].second = i;
-	}
-	sort(speeds.begin(), speeds.end());
-	for (int i = 0; i < size; i++)
-	{
-	result[i] = speeds[i].second;
-	}
-	return result;*/
 }
 
 void Racing::printLog(std::vector<Cockroach>&cockroaches, Stadium stadium)
