@@ -13,6 +13,7 @@ std::vector<Cockroach> getCockroaches(int cockroachesAmount)
 	for (int i = 0; i < cockroachesAmount; i++)
 	{
 		result[i] = Cockroach("Cockroach "+name,i+1,"TeamName"+name);
+		result[i].printInfo();
 		name[0]++;
 	}
 	return result;
@@ -25,6 +26,7 @@ std::vector<Stadium> getStadiums(int stadiumsAmount)
 	for (int i = 0; i < stadiumsAmount; i++)
 	{
 		result[i] = Stadium(name + "Stadium", i);
+		result[i].printInfo();
 		name[0]++;
 	}
 	return result;
@@ -38,6 +40,7 @@ std::vector<BetCompany> getBetCompanies(int betCompaniesAmount)
 	for (int i = 0; i < betCompaniesAmount; i++)
 	{
 		result[i] = BetCompany(i, name + " BetCompany");
+		result[i].printInfo();
 		name[0]++;
 	}
 	return result;
@@ -50,6 +53,7 @@ std::vector<Gambler> getGamblers(int gamblersAmount)
 	for (int i = 0; i < gamblersAmount; i++)
 	{
 		result[i] = Gambler("Gambler " + name, i);
+		result[i].printInfo();
 		name[0]++;
 	}
 	return result;
@@ -62,9 +66,13 @@ int main()
 	const int betCompaniesAmount = 10;
 	const int gamblersAmount = 15;
 	std::vector<Cockroach>cockroaches = getCockroaches(cockroachesAmount); //generate cockroaches
+	system("pause");
 	std::vector<Stadium>stadiums = getStadiums(stadiumsAmount);//generate stadiums
+	system("pause");
 	std::vector<BetCompany>betCompanies = getBetCompanies(betCompaniesAmount);//generate betcompanies
+	system("pause");
 	std::vector<Gambler>gamblers = getGamblers(gamblersAmount);//generate gamblers
+	system("pause");
 	while (true)
 	{
 		//todo: add print
