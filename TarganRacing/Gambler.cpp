@@ -55,7 +55,7 @@ void Gambler::printInfo()
 {
 	printf("Gambler ");
 	std::cout << name;
-	printf(" has %d money.\n");
+	printf(" has %d money.\n",money);
 }
 /*int Gambler::chooseCockroach()
 {

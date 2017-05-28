@@ -57,7 +57,7 @@ void Racing::printLog(std::vector<Cockroach>&cockroaches, Stadium stadium)
 	printf("Stadium "); std::cout << stadium.getName()<<":"<<std::endl;
 	for (int i = 0; i < cockroaches.size(); i++)
 	{
-		printf("%d-");
+		printf("%d-",i);
 		if (i%10 == 0)printf("st");
 		if (i%10 == 1)printf("nd");
 		if (i%10 == 2)printf("rd");

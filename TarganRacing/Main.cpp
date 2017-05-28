@@ -61,6 +61,7 @@ std::vector<Gambler> getGamblers(int gamblersAmount)
 
 int main()
 {
+	srand((int)clock());
 	const int cockroachesAmount = 9;
 	const int stadiumsAmount = 10;
 	const int betCompaniesAmount = 10;
