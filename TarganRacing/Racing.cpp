@@ -55,7 +55,7 @@ void Racing::Race(std::vector<Cockroach>&cockroaches, Stadium stadium)
 void Racing::printLog(std::vector<Cockroach>&cockroaches, Stadium stadium)
 {
 	printf("Stadium "); std::cout << stadium.getName()<<":"<<std::endl;
-	for (int i = 0; i < cockroaches.size(); i++)
+	for (int i = 0; i < (int)cockroaches.size(); i++)
 	{
 		printf("%d-",i+1);
 		if (i%10 == 0)printf("st");

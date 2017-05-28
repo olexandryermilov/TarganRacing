@@ -5,11 +5,12 @@
 
 Cockroach::Cockroach(std::string name, int id, std::string teamName)
 {
+	Random rand;
 	(*this).name = name;
 	(*this).id = id;
 	(*this).teamName = teamName;
 	amountOfLegs = 10;
-	experience = 0;
+	experience = rand.getRandomInteger(15);
 	glory = 0;
 }
 
@@ -47,12 +48,17 @@ json Cockroach::toJson()
 int Cockroach::calculateSpeed(Stadium stadium)//returns value between 0 and 200
 {
 	Random random;
-	const int legsInfluence = 65;
-	const int experienceInfluence=35;
-	const int luckCoef =random.getRandomInteger(7);
-	const int qualityInfluence = 15;
-	const int lengthInfluence =10 ;
-	return amountOfLegs*legsInfluence + experience*experienceInfluence;
+	const int legsInfluence = 80;
+	const int experienceInfluence=50;
+	const int luckCoef =Random::getRandomInteger(5);
+	const int qualityInfluence = 40;
+	const int lengthInfluence =30;
+	
+	int speedResult = (amountOfLegs*legsInfluence / maxLegs)
+						+((qualityInfluence*stadium.getQuality())/stadium.maxQuality)
+						+(lengthInfluence*(6-stadium.lengthType)/6)
+						+(experience*experienceInfluence)/(maxExp-minExp);
+	return speedResult-speedResult*luckCoef/10;
 }
 
 void Cockroach::fromJson(const json& data)

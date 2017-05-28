@@ -18,12 +18,16 @@ public:
 	void updateLegs(Stadium stadium);
 	void update(const int place, Stadium stadium);
 	void printInfo();
+	static const int maxLegs = 10;
+	static int minExp;
+	static int maxExp;
 	//getters start here
 	std::string getName() const { return name; }
 	int getId()const { return id; }
 	std::string getTeamName()const { return teamName; }
 	int getAmountOfLegs()const { return amountOfLegs; }
 	int getGlory()const { return glory; }
+	int getExperience()const { return experience; }
 
 private:
 	std::string name;//shows cockroach name

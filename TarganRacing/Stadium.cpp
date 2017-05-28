@@ -16,7 +16,8 @@ Stadium::Stadium(std::string name, int id)
 	(*this).id = id;
 	qualityCoef = random.getRandomInteger(100);
 	int lengthValues[6] = { 100,200,500,1000,2000,5000 };
-	length = lengthValues[random.getRandomInteger(5)];
+	lengthType = random.getRandomInteger(5);
+	length = lengthValues[lengthType];
 }
 
 Stadium::Stadium(std::string name, int id, int qualityCoef, int length/*,std::string weatherType*/) :

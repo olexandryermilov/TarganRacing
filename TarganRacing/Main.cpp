@@ -13,6 +13,8 @@ std::vector<Cockroach> getCockroaches(int cockroachesAmount)
 	for (int i = 0; i < cockroachesAmount; i++)
 	{
 		result[i] = Cockroach("Cockroach "+name,i+1,"TeamName"+name);
+		Cockroach::minExp = std::min(Cockroach::minExp, result[i].getExperience());
+		Cockroach::maxExp = std::max(Cockroach::maxExp, result[i].getExperience());
 		result[i].printInfo();
 		name[0]++;
 	}
@@ -66,6 +68,7 @@ int main()
 	const int stadiumsAmount = 10;
 	const int betCompaniesAmount = 10;
 	const int gamblersAmount = 15;
+
 	std::vector<Cockroach>cockroaches = getCockroaches(cockroachesAmount); //generate cockroaches
 	system("pause");
 	std::vector<Stadium>stadiums = getStadiums(stadiumsAmount);//generate stadiums
@@ -92,6 +95,8 @@ int main()
 			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
 			{
 				cockroaches[i].update(i, stadiums[p]);
+				Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
+				Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
 			}
 			for (int i = 0; i < stadiumsAmount; i++)//update stadiums
 			{
