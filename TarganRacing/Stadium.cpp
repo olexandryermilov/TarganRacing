@@ -50,11 +50,12 @@ void Stadium::fromJson(const json& data)
 	return;
 }
 
-void Stadium::updateQuality()
+void Stadium::updateQuality(bool isPositive)
 {
 	//todo::change reducing quality
 	int delta = 0;
 	delta = qualityCoef / 10;
+	if (!isPositive)delta *= -1;
 	qualityCoef -= delta;
 	printf("Stadium %d: Quality changed from %d to %d\n", id, qualityCoef+delta, qualityCoef);
 }

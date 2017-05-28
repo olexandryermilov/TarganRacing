@@ -11,7 +11,7 @@ public:
 	Stadium(const json& data);
 	Stadium(std::string name, int id, int qualityCoef, int length/*,std::string weatherType*/);
 	~Stadium();
-	void updateQuality();
+	void updateQuality(bool isPositive);
 	void printInfo();
 	static const int maxQuality = 100;
 	int lengthType;

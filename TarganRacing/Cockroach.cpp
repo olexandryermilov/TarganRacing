@@ -76,11 +76,12 @@ void Cockroach::updateExperience(const int place, Stadium stadium)
 	const int maximumPlace = 15;
 	const int maxQuality = 100;
 	const int maxLength = 5000;
-	const int minimumDelta = 5;
+	const int minimumDelta = Random::getRandomInteger(7);
 	const int firstPlacePrize = 10;
 	int length = stadium.getLength();
 	int quality = stadium.getQuality();
-	int delta = (int)((maximumPlace - place)*(length/maxLength)*(maxQuality - quality))
+	//printf("%d %.4f %d",maximumPlace-place,length*5.0/maxLength,maxQuality-quality);
+	int delta = (int)((maximumPlace - place)*(1.0*length/maxLength)*(maxQuality - quality))
 		              +minimumDelta+firstPlacePrize*(place==1);
 	printf("Cockroach ");
 	std::cout << name;

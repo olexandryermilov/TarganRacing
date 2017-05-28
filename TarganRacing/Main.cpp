@@ -96,15 +96,16 @@ int main()
 			//updates, take money
 			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
 			{
-				cockroaches[i].update(i, stadiums[p]);
+				cockroaches[i].update(i+1, stadiums[p]);
 				//Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
 				//Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
 			}
-			for (int i = 0; i < stadiumsAmount; i++)//update stadiums
-			{
-				stadiums[i].updateQuality();
-			}
+			stadiums[p].updateQuality(true);
 			system("pause");
+		}
+		for (int i = 0; i < stadiumsAmount; i++)//update stadiums
+		{
+			stadiums[i].updateQuality(false);
 		}
 		system("pause");
 	}
