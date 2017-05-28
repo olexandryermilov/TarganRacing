@@ -3,12 +3,11 @@
 
 Gambler::Gambler(std::string name, int id)
 {
-	Random random;
 	(*this).name = name;
 	(*this).id = id;
-	money = random.getRandomInteger(1000);
-	regularIncome = random.getRandomInteger(100);
-	riskCoef = random.getRandomInteger(100);
+	money = Random::getRandomInteger(1000);
+	regularIncome = Random::getRandomInteger(100);
+	riskCoef = Random::getRandomInteger(100);
 }
 
 Gambler::Gambler(const json& data)

@@ -4,11 +4,10 @@
 
 BetCompany::BetCompany(int id, std::string name)
 {
-	Random random;
 	(*this).id = id;
 	(*this).name = name;
-	greedyness = random.getRandomInteger(100);
-	money = random.getRandomInteger(1000);
+	greedyness = Random::getRandomInteger(100);
+	money = Random::getRandomInteger(1000);
 }
 
 BetCompany::BetCompany()

@@ -11,12 +11,11 @@ Stadium::Stadium()
 
 Stadium::Stadium(std::string name, int id)
 {
-	Random random;
 	(*this).name = name;
 	(*this).id = id;
-	qualityCoef = random.getRandomInteger(100);
+	qualityCoef = Random::getRandomInteger(100);
 	int lengthValues[6] = { 100,200,500,1000,2000,5000 };
-	lengthType = random.getRandomInteger(5);
+	lengthType = Random::getRandomInteger(5);
 	length = lengthValues[lengthType];
 }
 
