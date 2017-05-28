@@ -9,9 +9,11 @@
 std::vector<Cockroach> getCockroaches(int cockroachesAmount)
 {
 	std::vector<Cockroach>result(cockroachesAmount);
+	std::string name="A";
 	for (int i = 0; i < cockroachesAmount; i++)
 	{
-		result[i] = Cockroach("Name"+(char)(i+'0'),i+1,"TeamName"+(char)(i+'0'));
+		result[i] = Cockroach("Cockroach "+name,i+1,"TeamName"+name);
+		name[0]++;
 	}
 	return result;
 }
@@ -19,9 +21,11 @@ std::vector<Cockroach> getCockroaches(int cockroachesAmount)
 std::vector<Stadium> getStadiums(int stadiumsAmount)
 {
 	std::vector<Stadium>result(stadiumsAmount);
+	std::string name = "A";
 	for (int i = 0; i < stadiumsAmount; i++)
 	{
-		result[i] = Stadium("", i);
+		result[i] = Stadium(name + "Stadium", i);
+		name[0]++;
 	}
 	return result;
 
@@ -30,9 +34,11 @@ std::vector<Stadium> getStadiums(int stadiumsAmount)
 std::vector<BetCompany> getBetCompanies(int betCompaniesAmount)
 {
 	std::vector<BetCompany>result(betCompaniesAmount);
+	std::string name = "A";
 	for (int i = 0; i < betCompaniesAmount; i++)
 	{
-		result[i] = BetCompany(i, "");
+		result[i] = BetCompany(i, name + " BetCompany");
+		name[0]++;
 	}
 	return result;
 }
@@ -40,9 +46,11 @@ std::vector<BetCompany> getBetCompanies(int betCompaniesAmount)
 std::vector<Gambler> getGamblers(int gamblersAmount)
 {
 	std::vector<Gambler>result(gamblersAmount);
+	std::string name = "A";
 	for (int i = 0; i < gamblersAmount; i++)
 	{
-		result[i] = Gambler("", i);
+		result[i] = Gambler("Gambler " + name, i);
+		name[0]++;
 	}
 	return result;
 }
