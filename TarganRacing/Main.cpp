@@ -60,15 +60,17 @@ int main()
 	while (true)
 	{
 		//todo: add print
-		//generate timetables
-		//choose stadium
+		TimeTable timeTable;
+		stadiums = timeTable.getTimeTable(stadiums);
 		for (int p = 0; p < stadiumsAmount; p++)
 		{
 			for (int i = 0; i < betCompaniesAmount; i++)//assign coefs
 			{
 				betCompanies[i].assignCoefs(cockroaches, stadiums[p]);
 			}
-			//race
+			//add gamblers bet
+			Racing racing;
+			racing.Race(cockroaches, stadiums[p]);
 			//updates, take money
 			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
 			{
@@ -78,6 +80,8 @@ int main()
 			{
 				stadiums[i].updateQuality();
 			}
+			system("pause");
 		}
+		system("pause");
 	}
 }

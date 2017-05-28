@@ -52,9 +52,11 @@ void Stadium::fromJson(const json& data)
 
 void Stadium::updateQuality()
 {
-	//todo:: reduce quality
+	//todo::change reducing quality
 	int delta = 0;
-	printf("Stadium %d: Quality changed from %d to %d\n", id, qualityCoef, qualityCoef - delta);
+	delta = qualityCoef / 10;
+	qualityCoef -= delta;
+	printf("Stadium %d: Quality changed from %d to %d\n", id, qualityCoef+delta, qualityCoef);
 }
 
 void Stadium::printInfo()

@@ -13,11 +13,11 @@ public:
 	Racing(int time);
 	//Stadium stadium;
 	//std::vector<Cockroach>cockroaches;
-	std::vector<int> Race(std::vector<Cockroach>&cockroaches, Stadium stadium);
+	void Race(std::vector<Cockroach>&cockroaches, Stadium stadium);
 	void setTime(int time);
 	int getTime();
 private:
 	int time;
-	void printLog(std::vector<Cockroach>&cockroaches, Stadium stadium, std::vector<int>&result);
+	void printLog(std::vector<Cockroach>&cockroaches, Stadium stadium);
 };
 
