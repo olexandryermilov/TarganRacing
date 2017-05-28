@@ -53,7 +53,7 @@ int Cockroach::calculateSpeed(Stadium stadium)//returns value between 0 and 200
 	const int lengthInfluence =30;
 	
 	int speedResult = (amountOfLegs*legsInfluence / maxLegs)
-						+((qualityInfluence*stadium.getQuality())/stadium.maxQuality)
+						+((qualityInfluence*stadium.getQuality())/Stadium::maxQuality)
 						+(lengthInfluence*(6-stadium.lengthType)/6)
 						+(experience*experienceInfluence)/(maxExp-minExp);
 	return speedResult-speedResult*luckCoef/10;
