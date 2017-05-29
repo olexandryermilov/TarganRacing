@@ -75,6 +75,10 @@ int main()
 	std::vector<Stadium>stadiums = getStadiums(stadiumsAmount);//generate stadiums
 	system("pause");
 	std::vector<BetCompany>betCompanies = getBetCompanies(betCompaniesAmount);//generate betcompanies
+	for (int i = 0; i < betCompaniesAmount; i++)
+	{
+		betCompanies[i].coefs.resize(cockroachesAmount);
+	}
 	system("pause");
 	std::vector<Gambler>gamblers = getGamblers(gamblersAmount);//generate gamblers
 	system("pause");
@@ -82,23 +86,46 @@ int main()
 	{
 		//todo: add print
 		stadiums = TimeTable::getTimeTable(stadiums);
+		
 		for (int p = 0; p < stadiumsAmount; p++)
 		{
 			Racing::stadium = stadiums[p];
 			for (int i = 0; i < betCompaniesAmount; i++)//assign coefs
 			{
-				betCompanies[i].assignCoefs(cockroaches, stadiums[p]);
+				betCompanies[i].coefs=betCompanies[i].assignCoefs(cockroaches, stadiums[p]);
 			}
 			//add gamblers bet
+			std::vector<int>cockroachesChosenId(gamblersAmount);
+			std::vector<int> betCompaniesChosenNumber(gamblersAmount);	
+			std::vector<int>moneyToWin(gamblersAmount);
+			/*for (int i = 0; i < gamblersAmount; i++)
+			{
+				betCompaniesChosenNumber[i] = gamblers[i].chooseBetCompany(betCompaniesAmount);
+				int moneyToBet = gamblers[i].chooseHowMuchToBet();
+				int cockroachNum = gamblers[i].chooseCockroach(cockroachesAmount);
+				cockroachesChosenId[i] = cockroaches[cockroachNum].getId();
+				gamblers[i].setMoney(gamblers[i].getMoney() - moneyToBet);
+				moneyToWin[i] = moneyToBet*betCompanies[betCompaniesChosenNumber[i]].coefs[cockroachNum];
+			}*/
 			Racing racing;
 			racing.Race(cockroaches, stadiums[p]);
 			//updates, take money
 			for (int i = 0; i < cockroachesAmount; i++)//update cockroaches
 			{
 				cockroaches[i].update(i+1, stadiums[p]);
-				//Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
-				//Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
+				Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
+				Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
 			}
+			/*for (int i = 0; i < gamblersAmount; i++)
+			{
+				bool hasWon = cockroachesChosenId[i] == cockroaches[0].getId();
+				if(hasWon)
+				{
+					printf("Gambler "); std::cout << (*this).name; printf(" won\n");
+				}
+				gamblers[i].updateMoney(hasWon,moneyToWin[i]);
+				betCompanies[betCompaniesChosenNumber[i]].updateMoney(hasWon, moneyToWin[i]);
+			}*/
 			stadiums[p].updateQuality(true);
 			system("pause");
 		}

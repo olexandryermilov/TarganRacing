@@ -56,7 +56,33 @@ void Gambler::printInfo()
 	std::cout << name;
 	printf(" has %d money.\n",money);
 }
-/*int Gambler::chooseCockroach()
+int Gambler::chooseCockroach(int cockroachesAmount)
 {
+	return Random::getRandomInteger(cockroachesAmount-1);
+}
+int Gambler::chooseHowMuchToBet()
+{
+	return money*Random::getRandomInteger(65) / 100;
+}
+int Gambler::chooseBetCompany(int amountOfCompanies)
+{
+	return Random::getRandomInteger(amountOfCompanies);
+}
 
-}*/
+void Gambler::setMoney(int money)
+{
+	(*this).money = money;
+}
+
+void Gambler::updateMoney(bool hasWon,int money)
+{
+	if (hasWon)
+	{
+		(*this).money += money;
+	}
+	else
+	{
+		(*this).money -= money;
+	}
+	printf("Gambler "); std::cout << (*this).name; printf(" now has %d money\n", (*this).money);
+}

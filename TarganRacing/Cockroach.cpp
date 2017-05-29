@@ -76,7 +76,7 @@ void Cockroach::updateExperience(const int place, Stadium stadium)
 	const int maximumPlace = 15;
 	const int maxQuality = 100;
 	const int maxLength = 5000;
-	const int minimumDelta = Random::getRandomInteger(7);
+	const int minimumDelta = Random::getRandomInteger(6)+1;
 	const int firstPlacePrize = 10;
 	int length = stadium.getLength();
 	int quality = stadium.getQuality();

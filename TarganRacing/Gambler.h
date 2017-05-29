@@ -14,13 +14,17 @@ public:
 	~Gambler();
 	json toJson();
 	void printInfo();
+	int chooseCockroach(int cockroachesAmount);
+	int chooseHowMuchToBet();
+	int chooseBetCompany(int amountOfCompanies);
+	void updateMoney(bool hasWon, int money);
+	void setMoney(int money);
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }
 	int getMoney() const { return money; }
 	int getRegularIncome() const { return regularIncome; }
 	int getRiskCoef() const { return riskCoef; }
-	//int chooseCockroach();
 	//favorite betcompany?
 private:
 	std::string name;
