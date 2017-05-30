@@ -24,6 +24,6 @@ void TimeTable::printInfo(std::vector<Stadium> &stadiums)
 	{
 		std::cout << stadiums[i].getName() << std::endl;
 	}
-	std::cout << std::endl;
+	//std::cout << std::endl;
 }
 

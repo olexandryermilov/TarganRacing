@@ -85,6 +85,7 @@ int main()
 	while (true)
 	{
 		//todo: add print
+		printf("Timetable:\n");
 		stadiums = TimeTable::getTimeTable(stadiums);
 		system("pause");
 		for (int p = 0; p < stadiumsAmount; p++)

@@ -80,7 +80,7 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 	}
 	sort(speeds.begin(), speeds.end(), [](std::pair<int, int >l, std::pair<int,int>r)
 	{
-		return l.first > r.first;
+		return l.first < r.first;
 	}
 	);
 	double tempCoef = beginningCoef - greedyness/400.0;//between 1.0 and 1.25
@@ -147,6 +147,12 @@ std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroac
 		}
 		if (i < amountOfCockroaches - 1)
 			tempCoef += 4.0 * (speeds[i + 1].first - speeds[i].first)/100-0.3*greedyInfluence;
+		if (tempCoef < 0)throw 1;
+	}
+	std::cout << "BetCompany " << name << " gave those coefficients\n";
+	for (int i = 0; i < amountOfCockroaches; i++)
+	{
+		std::cout << "Cockroach " << allCockroaches[i].getName()<< " - "<<coefs[i]<<std::endl;
 	}
 	return coefs;
 	
