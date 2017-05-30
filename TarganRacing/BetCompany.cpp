@@ -53,18 +53,18 @@ void BetCompany::printInfo()
 	printf(" has %d money\n", money);
 }
 
-void BetCompany::updateMoney(bool hasWon, int money)
+void BetCompany::updateMoney(int money)
 {
-	if (hasWon)
-	{
-		(*this).money -= money;
-		if ((*this).money < 0)(*this).money = 0;
-	}
-	else
-	{
-		(*this).money += money;
-	}
-	printf("BetCompany "); std::cout << (*this).name; printf(" now has %d money\n", (*this).money);
+	(*this).money -= money;
+	if ((*this).money < 0)(*this).money = 0;
+	printInfo();
+	//printf("BetCompany "); std::cout << (*this).name; printf(" now has %d money\n", (*this).money);
+}
+
+void BetCompany::setMoney(int money)
+{
+	(*this).money = money;
+	printInfo();
 }
 
 std::vector <double> BetCompany::assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium)

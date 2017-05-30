@@ -66,23 +66,18 @@ int Gambler::chooseHowMuchToBet()
 }
 int Gambler::chooseBetCompany(int amountOfCompanies)
 {
-	return Random::getRandomInteger(amountOfCompanies);
+	return Random::getRandomInteger(amountOfCompanies-1);
 }
 
 void Gambler::setMoney(int money)
 {
 	(*this).money = money;
+	printInfo();
 }
 
-void Gambler::updateMoney(bool hasWon,int money)
+void Gambler::updateMoney(int money)
 {
-	if (hasWon)
-	{
-		(*this).money += money;
-	}
-	else
-	{
-		(*this).money -= money;
-	}
-	printf("Gambler "); std::cout << (*this).name; printf(" now has %d money\n", (*this).money);
+	(*this).money += money;
+	printInfo();
+	//printf("Gambler "); std::cout << (*this).name; printf(" now has %d money\n", (*this).money);
 }

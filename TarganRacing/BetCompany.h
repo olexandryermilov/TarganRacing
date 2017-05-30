@@ -18,7 +18,8 @@ public:
 	std::vector<double> assignCoefs(std::vector<Cockroach> &allCockroaches, Stadium stadium);
 	std::vector<double> coefs;
 	void printInfo();
-	void updateMoney(bool hasWon, int money);
+	void updateMoney(int money);
+	void setMoney(int money);
 	//getters start here
 	std::string getName() const { return name; }
 	int getId() const { return id; }

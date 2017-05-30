@@ -86,7 +86,7 @@ int main()
 	{
 		//todo: add print
 		stadiums = TimeTable::getTimeTable(stadiums);
-		
+		system("pause");
 		for (int p = 0; p < stadiumsAmount; p++)
 		{
 			Racing::stadium = stadiums[p];
@@ -98,15 +98,19 @@ int main()
 			std::vector<int>cockroachesChosenId(gamblersAmount);
 			std::vector<int> betCompaniesChosenNumber(gamblersAmount);	
 			std::vector<int>moneyToWin(gamblersAmount);
-			/*for (int i = 0; i < gamblersAmount; i++)
+			for (int i = 0; i < gamblersAmount; i++)
 			{
 				betCompaniesChosenNumber[i] = gamblers[i].chooseBetCompany(betCompaniesAmount);
 				int moneyToBet = gamblers[i].chooseHowMuchToBet();
 				int cockroachNum = gamblers[i].chooseCockroach(cockroachesAmount);
 				cockroachesChosenId[i] = cockroaches[cockroachNum].getId();
 				gamblers[i].setMoney(gamblers[i].getMoney() - moneyToBet);
+				betCompanies[betCompaniesChosenNumber[i]].setMoney(betCompanies[betCompaniesChosenNumber[i]].getMoney()+moneyToBet);
 				moneyToWin[i] = moneyToBet*betCompanies[betCompaniesChosenNumber[i]].coefs[cockroachNum];
-			}*/
+				printf("Gambler "); std::cout << gamblers[i].getName(); printf(" bet %d money on cockroach ", moneyToBet); std::cout << cockroaches[cockroachNum].getName();
+				printf(". He will win %d money if his bet is right\n", moneyToWin[i]);
+			}
+			system("pause");
 			Racing racing;
 			racing.Race(cockroaches, stadiums[p]);
 			//updates, take money
@@ -116,16 +120,22 @@ int main()
 				Cockroach::minExp = std::min(Cockroach::minExp, cockroaches[i].getExperience());
 				Cockroach::maxExp = std::max(Cockroach::maxExp, cockroaches[i].getExperience());
 			}
-			/*for (int i = 0; i < gamblersAmount; i++)
+			system("pause");
+			for (int i = 0; i < gamblersAmount; i++)
 			{
 				bool hasWon = cockroachesChosenId[i] == cockroaches[0].getId();
 				if(hasWon)
 				{
-					printf("Gambler "); std::cout << (*this).name; printf(" won\n");
+					printf("Gambler "); std::cout << gamblers[i].getName(); printf(" won\n");
+					gamblers[i].updateMoney(moneyToWin[i]);
+					betCompanies[betCompaniesChosenNumber[i]].updateMoney(moneyToWin[i]);
 				}
-				gamblers[i].updateMoney(hasWon,moneyToWin[i]);
-				betCompanies[betCompaniesChosenNumber[i]].updateMoney(hasWon, moneyToWin[i]);
-			}*/
+				else
+				{
+					printf("Gambler "); std::cout << gamblers[i].getName(); printf(" lost\n");
+				}
+			}
+			system("pause");
 			stadiums[p].updateQuality(true);
 			system("pause");
 		}

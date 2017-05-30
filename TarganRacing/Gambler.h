@@ -17,7 +17,7 @@ public:
 	int chooseCockroach(int cockroachesAmount);
 	int chooseHowMuchToBet();
 	int chooseBetCompany(int amountOfCompanies);
-	void updateMoney(bool hasWon, int money);
+	void updateMoney(int money);
 	void setMoney(int money);
 	//getters start here
 	std::string getName() const { return name; }
