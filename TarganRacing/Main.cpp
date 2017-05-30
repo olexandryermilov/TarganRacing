@@ -66,9 +66,9 @@ int main()
 {
 	srand((int)clock());
 	const int cockroachesAmount = 9;
-	const int stadiumsAmount = 10;
-	const int betCompaniesAmount = 10;
-	const int gamblersAmount = 15;
+	const int stadiumsAmount = 8;
+	const int betCompaniesAmount = 5;
+	const int gamblersAmount = 5;
 
 	std::vector<Cockroach>cockroaches = getCockroaches(cockroachesAmount); //generate cockroaches
 	system("pause");
