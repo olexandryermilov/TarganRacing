@@ -55,8 +55,13 @@ void Stadium::updateQuality(bool isPositive)
 	//todo::change reducing quality
 	int delta = 0;
 	delta = qualityCoef / 10;
-	if (!isPositive)delta *= -1;
+	if (!isPositive)delta *= -1; else delta += 1;
 	qualityCoef -= delta;
+	if (qualityCoef < 0)
+	{
+		qualityCoef = 0;
+		delta = 0;
+	}
 	printf("Stadium %d: Quality changed from %d to %d\n", id, qualityCoef+delta, qualityCoef);
 }
 

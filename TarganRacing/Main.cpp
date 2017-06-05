@@ -144,6 +144,10 @@ int main()
 		{
 			stadiums[i].updateQuality(false);
 		}
+		for (int i = 0; i < cockroachesAmount; i++)
+		{
+			cockroaches[i].printInfo();
+		}
 		system("pause");
 	}
 }
