@@ -159,9 +159,9 @@ void Cockroach::update(const int place, Stadium stadium)
 void Cockroach::updateGlory()
 {
 	glory = 0;
-	glory += 100.0*(9 - lastThreePlaces[0]) / 8.0;
-	glory += 50.0 * (9 - lastThreePlaces[1]) / 8.0;
-	glory += 25.0 * (9 - lastThreePlaces[0]) / 8.0;
+	glory += (lastThreePlaces[0]!=0)*100.0*(9 - lastThreePlaces[0]) / 8.0;
+	glory += (lastThreePlaces[1] != 0)*50.0 * (9 - lastThreePlaces[1]) / 8.0;
+	glory += (lastThreePlaces[2] != 0)*25.0 * (9 - lastThreePlaces[2]) / 8.0;
 }
 
 
