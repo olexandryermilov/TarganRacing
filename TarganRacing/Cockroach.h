@@ -31,6 +31,8 @@ public:
 	int getExperience()const { return experience; }
 
 private:
+	void updateGlory();
+	int lastThreePlaces[3];
 	std::string name;//shows cockroach name
 	int id;
 	std::string teamName;

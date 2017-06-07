@@ -10,7 +10,7 @@ Cockroach::Cockroach(std::string name, int id, std::string teamName)
 	(*this).name = name;
 	(*this).id = id;
 	(*this).teamName = teamName;
-	amountOfLegs = 10;
+	amountOfLegs = 10+(1-Random::getRandomInteger(2))*Random::getRandomInteger(4);
 	experience = Random::getRandomInteger(15);
 	glory = 0;
 }
@@ -73,7 +73,7 @@ void Cockroach::fromJson(const json& data)
 
 void Cockroach::updateExperience(const int place, Stadium stadium)
 {
-	const int maximumPlace = 15;
+	const int maximumPlace = 9;
 	const int maxQuality = 100;
 	const int maxLength = 5000;
 	const int minimumDelta = Random::getRandomInteger(6)+1;
@@ -100,24 +100,29 @@ void Cockroach::updateLegs(Stadium stadium)
 	{
 		if (amountOfLegs > 6)
 		{
-			delta= 3;
+			delta = Random::getRandomInteger(1);
+			if (delta == 1)delta = 3; else delta = 2;
 		}
 	}
 	if (influenceCoef >= 10000)
 	{
 		if (amountOfLegs > 4)
 		{
-			delta= 2;
+			//delta= 2;
+			delta = Random::getRandomInteger(1);
+			if (delta == 1)delta = 2; else delta = 1;
 		}
 		else
 		{
 			if (amountOfLegs > 2)
 			{
-				delta = 1;
+				delta = Random::getRandomInteger(1);
+				if (delta == 1)delta = 1; else delta = 0;
 			}
 			else
 			{
-				//do smth
+				delta = Random::getRandomInteger(3);
+				if (delta == 3&&amountOfLegs>1)delta = 1; else delta = 0;
 			}
 		}
 	}
@@ -127,7 +132,8 @@ void Cockroach::updateLegs(Stadium stadium)
 		{
 			if (amountOfLegs > 4)
 			{
-				delta = 1;
+				delta = Random::getRandomInteger(1);
+				if (delta == 1)delta = 1; else delta = 0;
 			}
 			else
 			{
@@ -142,9 +148,22 @@ void Cockroach::updateLegs(Stadium stadium)
 
 void Cockroach::update(const int place, Stadium stadium)
 {
+	lastThreePlaces[2] = lastThreePlaces[1];
+	lastThreePlaces[1] = lastThreePlaces[0];
+	lastThreePlaces[0] = place;
 	updateExperience(place, stadium);
 	updateLegs(stadium);
+	updateGlory();
 }
+
+void Cockroach::updateGlory()
+{
+	glory = 0;
+	glory += 100.0*(9 - lastThreePlaces[0]) / 8.0;
+	glory += 50.0 * (9 - lastThreePlaces[1]) / 8.0;
+	glory += 25.0 * (9 - lastThreePlaces[0]) / 8.0;
+}
+
 
 void Cockroach::printInfo()
 {

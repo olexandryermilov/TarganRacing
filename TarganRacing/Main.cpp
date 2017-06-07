@@ -87,7 +87,7 @@ int main()
 		//todo: add print
 		printf("Timetable:\n");
 		stadiums = TimeTable::getTimeTable(stadiums);
-		system("pause");
+		//system("pause");
 		for (int p = 0; p < stadiumsAmount; p++)
 		{
 			Racing::stadium = stadiums[p];
@@ -111,7 +111,7 @@ int main()
 				printf("Gambler "); std::cout << gamblers[i].getName(); printf(" bet %d money on cockroach ", moneyToBet); std::cout << cockroaches[cockroachNum].getName();
 				printf(". He will win %d money if his bet is right\n", moneyToWin[i]);
 			}
-			system("pause");
+			//system("pause");
 			Racing racing;
 			racing.Race(cockroaches, stadiums[p]);
 			//updates, take money
@@ -136,9 +136,9 @@ int main()
 					printf("Gambler "); std::cout << gamblers[i].getName(); printf(" lost\n");
 				}
 			}
-			system("pause");
+			//system("pause");
 			stadiums[p].updateQuality(true);
-			system("pause");
+			//system("pause");
 		}
 		for (int i = 0; i < stadiumsAmount; i++)//update stadiums
 		{
